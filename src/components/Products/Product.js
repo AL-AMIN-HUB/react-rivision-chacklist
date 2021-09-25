@@ -15,8 +15,10 @@ const Product = () => {
   const [cart, setCart] = useState([]);
   const HandleAddToCart = (product) => {
     const newCart = [...cart, product];
+    product.isAdded = true;
     setCart(newCart);
     // console.log(newCart);
+    console.log(product);
   };
   return (
     <div className="d-flex mt-5">
@@ -26,9 +28,9 @@ const Product = () => {
         ))}
       </div>
       <div className="col-md-3 cart-container  border-start">
-        <h4 className="text-center">Review your order Products</h4>
+        <h2 className="text-center border-bottom border-3 border-danger mx-3">Review your order Products</h2>
         {cart.map((name) => (
-          <Cart name={name}></Cart>
+          <Cart key={name.strArea} name={name}></Cart>
         ))}
       </div>
     </div>
